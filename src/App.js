@@ -1,24 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import { Card, CardContent } from "@mui/material";
+import React from "react";
+import { BrowserRouter,Routes,Route } from "react-router-dom";
+import { Home } from "./components/Home";
+import { Fruit } from "./components/Fruit";
+import { Monuments } from "./components/Monuments";
+import { Speedo } from "./components/Speedo";
+import { NavList } from "./components/NavList";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Card sx={{ bgcolor: "lavender", height: "100vh" }}>
+      <CardContent>
+          <BrowserRouter>
+          <NavList />
+              <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/fruit" element={<Fruit />} />
+                  <Route path="/monuments" element={<Monuments />} />
+                  <Route path="/speedo" element={<Speedo />} />
+
+               
+              </Routes>
+          </BrowserRouter>
+      </CardContent>
+    </Card>
   );
 }
 
